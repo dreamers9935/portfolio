@@ -1,0 +1,25 @@
+:root { --ground: #0e0d10; --surface: #17151a; --line: rgba(255,255,255,.1); --ink: #f5f2ee; --muted: #a39c94; --accent: #d97757; --accent-ink: #141013; color-scheme: dark; }
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { min-height: 100svh; background: var(--ground); color: var(--ink); font-family: "Inter", system-ui, sans-serif; display: grid; place-items: center; padding: 24px 16px; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0; background: radial-gradient(60% 50% at 50% 0%, rgba(217,119,87,.18), transparent 70%); pointer-events: none; }
+.gate { position: relative; width: min(440px, 100%); background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 34px 28px 28px; box-shadow: 0 40px 120px rgba(0,0,0,.5); }
+.mark { width: 48px; height: 48px; border-radius: 13px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 700 24px "JetBrains Mono", monospace; }
+h1 { margin-top: 22px; font-size: 30px; font-weight: 900; letter-spacing: -.035em; line-height: 1.1; }
+.lead { margin-top: 8px; color: var(--muted); font-size: 15px; }
+form { margin-top: 24px; display: flex; gap: 10px; }
+input { flex: 1; min-width: 0; font: 500 16px "JetBrains Mono", monospace; color: var(--ink); background: #0e0d10; border: 1px solid var(--line); border-radius: 12px; padding: 14px 14px; outline: none; }
+input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(217,119,87,.25); }
+button { font: 700 15px "Inter", system-ui, sans-serif; color: var(--accent-ink); background: var(--accent); border: 0; border-radius: 12px; padding: 0 18px; cursor: pointer; }
+button:disabled { opacity: .6; cursor: progress; }
+.bar { margin-top: 18px; height: 4px; border-radius: 4px; background: rgba(255,255,255,.08); overflow: hidden; --p: 0; }
+.bar i { display: block; height: 100%; width: calc(var(--p) * 100%); background: var(--accent); transition: width .15s; }
+#g-msg { margin-top: 12px; min-height: 22px; font: 500 14px "JetBrains Mono", monospace; color: var(--muted); }
+#g-msg.err { color: #ff8a7a; }
+.foot { margin-top: 18px; font: 12px "JetBrains Mono", monospace; color: #6f6862; }
+/* reel page */
+.player { display: none; width: min(1280px, 100%); }
+.player video { width: 100%; border-radius: 18px; background: #000; box-shadow: 0 40px 120px rgba(0,0,0,.6); display: block; }
+.player p { margin-top: 14px; font: 13px "JetBrains Mono", monospace; color: var(--muted); text-align: center; }
+.player a { color: var(--accent); }
+body.reel-ready .gate { display: none; }
+body.reel-ready .player { display: block; }
